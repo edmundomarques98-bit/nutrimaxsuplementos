@@ -46,7 +46,7 @@ function ScrollStoryContent() {
 
   const markerLeft = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
   const markerRotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
-  const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.75, 1.15, 0.9]);
+  const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.82, 1.12, 0.94]);
 
   useMotionValueEvent(scrollYProgress, 'change', (value) => {
     setProgress(Math.round(value * 100));
@@ -104,22 +104,23 @@ function ScrollStoryContent() {
           {stages.map((stage, index) => {
             const Icon = stage.icon;
             const active = activeIndex === index;
+            const reached = activeIndex > index;
 
             return (
               <motion.article
-                className={`story-stage ${active ? 'active' : ''}`}
+                className={`story-stage ${active ? 'active' : ''} ${reached ? 'reached' : ''}`}
                 key={stage.number}
                 aria-current={active ? 'step' : undefined}
                 animate={
                   reduce
                     ? { opacity: 1, y: 0, scale: 1 }
                     : {
-                        opacity: active ? 1 : 0.3,
-                        y: active ? 0 : 18,
-                        scale: active ? 1 : 0.97,
+                        opacity: 1,
+                        y: active ? 0 : 5,
+                        scale: active ? 1 : 0.992,
                       }
                 }
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="story-stage-top">
                   <span className="story-stage-number">{stage.number}</span>
