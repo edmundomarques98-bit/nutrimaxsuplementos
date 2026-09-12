@@ -19,6 +19,9 @@ import {
   Zap,
 } from 'lucide-react';
 
+const instagramUrl = 'https://www.instagram.com/nutri_maxsuplementos?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==';
+const whatsappUrl = 'https://wa.me/558896057838?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Nutrimax%20e%20gostaria%20de%20atendimento.';
+
 const goals: Record<string, string> = {
   performance: 'Creatina e pré-treinos',
   proteina: 'Proteínas e recuperação',
@@ -152,7 +155,7 @@ function App() {
           <RevealLink href="#contato">Contato</RevealLink>
         </nav>
 
-        <a className="nav-cta" href="#contato">
+        <a className="nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
           Falar com a Nutrimax <ArrowUpRight size={17} />
         </a>
 
@@ -238,7 +241,9 @@ function App() {
               <a className="button primary" href="#categorias">
                 Explorar categorias <ArrowUpRight size={18} />
               </a>
-              <a className="button ghost" href="#contato">Atendimento online</a>
+              <a className="button ghost" href={whatsappUrl} target="_blank" rel="noreferrer">
+                Atendimento online
+              </a>
             </motion.div>
           </motion.div>
 
@@ -391,11 +396,11 @@ function App() {
           </div>
 
           <div className="contact-actions">
-            <a className="contact-row" href="#inicio">
+            <a className="contact-row" href={whatsappUrl} target="_blank" rel="noreferrer">
               <span><MessageCircle /> Atendimento online</span>
               <ArrowUpRight />
             </a>
-            <a className="contact-row" href="#inicio">
+            <a className="contact-row" href={instagramUrl} target="_blank" rel="noreferrer">
               <span><Instagram /> Instagram Nutrimax</span>
               <ArrowUpRight />
             </a>
