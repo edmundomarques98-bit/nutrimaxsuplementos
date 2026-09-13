@@ -44,12 +44,16 @@ function ScrollStoryContent() {
     offset: ['start start', 'end end'],
   });
 
-  const markerLeft = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  const markerRotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
-  const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.82, 1.12, 0.94]);
+  // Conclui a jornada antes de a seção deixar a área fixa, mantendo o 100% visível.
+  const storyProgress = useTransform(scrollYProgress, [0, 0.9], [0, 1], {
+    clamp: true,
+  });
+  const markerLeft = useTransform(storyProgress, [0, 1], ['0%', '100%']);
+  const markerRotate = useTransform(storyProgress, [0, 1], [0, 360]);
+  const glowScale = useTransform(storyProgress, [0, 0.5, 1], [0.82, 1.12, 0.94]);
 
-  useMotionValueEvent(scrollYProgress, 'change', (value) => {
-    setProgress(Math.round(value * 100));
+  useMotionValueEvent(storyProgress, 'change', (value) => {
+    setProgress(Math.min(100, Math.round(value * 100)));
   });
 
   const activeIndex = progress < 34 ? 0 : progress < 67 ? 1 : 2;
@@ -81,7 +85,7 @@ function ScrollStoryContent() {
 
         <div className="story-rail-wrap" aria-hidden="true">
           <div className="story-rail">
-            <motion.div className="story-rail-fill" style={{ scaleX: scrollYProgress }} />
+            <motion.div className="story-rail-fill" style={{ scaleX: storyProgress }} />
             {stages.map((stage, index) => (
               <span
                 className={`story-node ${activeIndex >= index ? 'reached' : ''}`}
