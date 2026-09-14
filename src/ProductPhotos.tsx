@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import productSprite from './productSprite';
 import './product-photos.css';
-
-const productSprite = './resources/product-sprite-hq.webp';
 
 const productPhotos = [
   { label: 'Creatina Adaptogen', position: '0% 0%' },
