@@ -12,11 +12,12 @@
 }
 
 .product-photo {
+  display: block;
   width: min(100%, 220px);
+  height: auto;
   aspect-ratio: 1;
   border-radius: 18px;
-  background-repeat: no-repeat;
-  background-size: 200% 200%;
+  object-fit: contain;
   background-color: #0b1710;
   box-shadow: 0 24px 55px rgba(0, 0, 0, 0.34);
   border: 1px solid rgba(255, 255, 255, 0.09);

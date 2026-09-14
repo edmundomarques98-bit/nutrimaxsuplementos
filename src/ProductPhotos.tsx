@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import productSprite from './productSprite';
 import './product-photos.css';
 
 const productPhotos = [
-  { label: 'Creatina Adaptogen', position: '0% 0%' },
-  { label: 'Tasty Whey Adaptogen', position: '100% 0%' },
-  { label: 'Rage XL pré-treino', position: '0% 100%' },
-  { label: 'Ultraminic multivitamínico', position: '100% 100%' },
+  { label: 'Creatina Adaptogen 300 g', file: 'creatina-adaptogen.webp' },
+  { label: 'Tasty Whey Adaptogen Original 900 g', file: 'tasty-whey-adaptogen.webp' },
+  { label: 'Rage XL pré-treino Uva Silvestre', file: 'rage-xl.webp' },
+  { label: 'Ultraminic multivitamínico Evorox', file: 'ultraminic.webp' },
 ];
 
 export default function ProductPhotos() {
@@ -27,14 +26,14 @@ export default function ProductPhotos() {
     <>
       {hosts.map((host, index) =>
         createPortal(
-          <div
+          <img
             className="product-photo"
-            role="img"
-            aria-label={productPhotos[index]?.label ?? 'Produto Nutrimax'}
-            style={{
-              backgroundImage: `url(${productSprite})`,
-              backgroundPosition: productPhotos[index]?.position ?? '0% 0%',
-            }}
+            src={`./resources/products/${productPhotos[index].file}`}
+            alt={productPhotos[index].label}
+            width={960}
+            height={960}
+            loading="lazy"
+            decoding="async"
           />,
           host,
         ),
