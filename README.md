@@ -1,22 +1,13 @@
 # Nutrimax Suplementos
 
-Site oficial da Nutrimax Suplementos, desenvolvido em React + Vite com Motion para animações.
+Site oficial da Nutrimax Suplementos.
 
-## Desenvolvimento
+Tecnologias principais:
+- React + Vite
+- Motion
+- GitHub Pages
 
-```bash
-npm install
-npm run dev
-```
+Publicação automática via GitHub Actions.
 
-## Build
-
-```bash
-npm run build
-```
-
-## Publicação
-
-O projeto possui workflow em `.github/workflows/deploy-pages.yml` para publicação automática no GitHub Pages a cada push na branch `main`.
-
-Durante a migração inicial, a imagem principal do hero é recuperada da implantação anterior antes do build. Depois que o catálogo e os assets forem consolidados no repositório, esse passo pode ser removido.
+## Atualização visual
+Os cards de categorias utilizam imagens HQ em WebP para melhor nitidez em desktop e mobile.
