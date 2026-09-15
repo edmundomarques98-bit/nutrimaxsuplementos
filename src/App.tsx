@@ -263,11 +263,6 @@ function App() {
               <span className="section-tag">[ CATEGORIAS ]</span>
               <h2>O essencial, sem ruído.</h2>
             </div>
-            <p>
-              Uma seleção organizada para você encontrar o que procura sem precisar
-              atravessar um catálogo infinito. A humanidade já sofreu o suficiente
-              com menus de 47 páginas.
-            </p>
           </div>
 
           <div className="card-grid">
